@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Food_Store.Controllers
 {
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         ShopContext _context;
-        public UserController(ShopContext context)
+        public UsersController(ShopContext context)
         {
             _context = context;
         }
