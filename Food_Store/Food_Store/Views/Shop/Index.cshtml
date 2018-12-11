@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Food_Store.ViewModels.ItemModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<form asp-controller="Shop" asp-action="Index">
+    <p>
+        Type: <input type="text" name="TypeString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<p>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Path)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    Type
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @{ string sr = $"/{item.Path}"; }
+                        <img src="@sr" height="100" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeOfItem)
+
+                    </td>
+                    <td>
+                        
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
