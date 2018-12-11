@@ -3,15 +3,17 @@ using System;
 using Food_Store.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Food_Store.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20181211190433_addUserItems")]
+    partial class addUserItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,7 +109,7 @@ namespace Food_Store.Migrations
 
                     b.Property<Guid>("UserId");
 
-                    b.Property<double>("Amount");
+                    b.Property<double>("Ammount");
 
                     b.HasKey("ItemId", "UserId");
 

@@ -7,7 +7,7 @@ namespace Food_Store.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+           /* migrationBuilder.CreateTable(
                 name: "Items",
                 columns: table => new
                 {
@@ -61,7 +61,7 @@ namespace Food_Store.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_itemTypes_ItTypeId",
                 table: "itemTypes",
-                column: "ItTypeId");
+                column: "ItTypeId");*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

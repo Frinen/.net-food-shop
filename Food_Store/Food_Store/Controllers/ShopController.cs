@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Food_Store.Common;
+using Food_Store.Models;
 using Food_Store.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ namespace Food_Store.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string TypeString)
+        public IActionResult Index(string TypeString)
         {
 
             var dbList = _context.Items.Include(x => x.ItemType);
@@ -58,11 +59,22 @@ namespace Food_Store.Controllers
 
             return View(item);
         }
-
-        public async Task<IActionResult> Buy(Guid? id)
+        [HttpPost]
+        public async Task<IActionResult> Buy(Guid? id, double amount)
         {
-
-            return View();
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var userId = _context.Users.FirstOrDefault(x => x.Email == User.Identity.Name).Id;
+            var userItem = new UsersItems() {
+                ItemId = (Guid)id,
+                UserId = userId,
+                Amount = amount
+            };
+            await _context.AddAsync(userItem);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }

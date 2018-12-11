@@ -14,6 +14,7 @@ namespace Food_Store.Common
         public DbSet<ItemType> itemTypes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<UsersItems> UsersItems { get; set; }
         public ShopContext(DbContextOptions<ShopContext> options)
            : base(options)
         {
@@ -37,6 +38,7 @@ namespace Food_Store.Common
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ItemType>().HasKey(t => new { t.ItemId, t.ItTypeId});
+            modelBuilder.Entity<UsersItems>().HasKey(t => new { t.ItemId, t.UserId});
 
             modelBuilder.Entity<ItemType>()
             .HasOne(pt => pt.Item)
@@ -48,7 +50,18 @@ namespace Food_Store.Common
             .WithMany(t => t.ItemType)
             .HasForeignKey(pt => pt.ItTypeId);
 
-            
+            //---------------------------------
+
+            modelBuilder.Entity<UsersItems>()
+            .HasOne(pt => pt.Item)
+            .WithMany(t => t.UsersItems)
+            .HasForeignKey(pt => pt.ItemId);
+
+            modelBuilder.Entity<UsersItems>()
+            .HasOne(pt => pt.User)
+            .WithMany(t => t.UsersItems)
+            .HasForeignKey(pt => pt.UserId);
+
         }
 
         internal Guid FirstOrDefault()

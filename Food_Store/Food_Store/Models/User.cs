@@ -11,5 +11,6 @@ namespace Food_Store.Models
         public string Password { get; set; }
         public Guid? RoleId { get; set; }
         public Role Role { get; set; }
+        public ICollection<UsersItems> UsersItems { get; set; }
     }
 }

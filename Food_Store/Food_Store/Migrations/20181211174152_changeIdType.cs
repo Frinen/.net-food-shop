@@ -7,7 +7,7 @@ namespace Food_Store.Migrations
     public partial class changeIdType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {/*
             migrationBuilder.DeleteData(
                 table: "Roles",
                 keyColumn: "Id",
@@ -57,7 +57,7 @@ namespace Food_Store.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "Password", "RoleId" },
-                values: new object[] { new Guid("5334cf34-29aa-412b-8a1e-0a8d6c488cc8"), "admin@mail.ru", "123456", new Guid("3e134d8d-b208-4a36-a4b6-732d06756907") });
+                values: new object[] { new Guid("5334cf34-29aa-412b-8a1e-0a8d6c488cc8"), "admin@mail.ru", "123456", new Guid("3e134d8d-b208-4a36-a4b6-732d06756907") });*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

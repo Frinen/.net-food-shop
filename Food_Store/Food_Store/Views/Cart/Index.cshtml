@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Food_Store.ViewModels.ItemModel>
+﻿@model IEnumerable<Food_Store.ViewModels.ItemBuyModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -60,7 +60,7 @@
                         <a asp-action="Details" asp-route-id="@item.Id" >Details</a>
                         <form asp-action="Buy">
                             <input type="hidden" name="id" asp-for="@item.Id" />
-                            <input type="text" name="amount" size="2" />
+                            <input asp-for="@item.Amount" size="2" name="amount" />
                             <input type="submit" value="Buy" class="btn btn-default" />
                         </form>
                     </td>

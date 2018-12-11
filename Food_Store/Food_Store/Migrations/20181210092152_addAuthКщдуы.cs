@@ -7,7 +7,7 @@ namespace Food_Store.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
+           /* migrationBuilder.AddColumn<int>(
                 name: "RoleId",
                 table: "Users",
                 nullable: true);
@@ -51,7 +51,7 @@ namespace Food_Store.Migrations
                 column: "RoleId",
                 principalTable: "Roles",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Restrict);*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
