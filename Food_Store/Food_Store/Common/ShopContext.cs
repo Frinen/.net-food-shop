@@ -28,9 +28,9 @@ namespace Food_Store.Common
             string adminPassword = "123456";
 
             // добавляем роли
-            Role adminRole = new Role { Id = 1, Name = adminRoleName };
-            Role userRole = new Role { Id = 2, Name = userRoleName };
-            User adminUser = new User { Id = 1, Email = adminEmail, Password = adminPassword, RoleId = adminRole.Id };
+            Role adminRole = new Role { Id =  new Guid("3e134d8d-b208-4a36-a4b6-732d06756907"), Name = adminRoleName };
+            Role userRole = new Role { Id = new Guid("dbd077aa-7215-4b8f-a2a3-5feca43817fb"), Name = userRoleName };
+            User adminUser = new User { Id = new Guid("5334cf34-29aa-412b-8a1e-0a8d6c488cc8"), Email = adminEmail, Password = adminPassword, RoleId = adminRole.Id };
 
             modelBuilder.Entity<Role>().HasData(new Role[] { adminRole, userRole });
             modelBuilder.Entity<User>().HasData(new User[] { adminUser });
@@ -47,6 +47,8 @@ namespace Food_Store.Common
             .HasOne(pt => pt.Type)
             .WithMany(t => t.ItemType)
             .HasForeignKey(pt => pt.ItTypeId);
+
+            
         }
 
         internal Guid FirstOrDefault()

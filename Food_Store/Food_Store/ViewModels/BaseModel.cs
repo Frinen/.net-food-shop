@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace Food_Store.ViewModels
 {
-    public class UserModel : BaseModel
+    public class BaseModel
     {
-        public string Email { get; set; }
-        public string Role { get; set; }
-
+        public Guid Id { get; set; }
     }
 }

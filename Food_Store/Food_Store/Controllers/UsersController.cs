@@ -28,7 +28,7 @@ namespace Food_Store.Controllers
             });
             return View(users);
         }
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             var user = _context.Users.Include(x => x.Role).FirstOrDefault(x => x.Id == id);
             var vievUser = new UserModel()
@@ -43,7 +43,7 @@ namespace Food_Store.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var item = await _context.Users.FindAsync(id);
             _context.Users.Remove(item);

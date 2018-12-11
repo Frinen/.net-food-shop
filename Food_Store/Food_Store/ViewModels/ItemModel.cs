@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Food_Store.ViewModels
 {
-    public class ItemModel
+    public class ItemModel :BaseModel
     {
-        public Guid Id { get; set; }
+        
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
